@@ -6,7 +6,7 @@ terraform {
     }
   }
 }
-provider "aws" {
+provider "hashicorp/aws" {
     profile = "default"
     region = "ap-south-1"
     shared_credentials_file = "~/.aws/credentials"
