@@ -3,8 +3,8 @@ provider "aws" {
     profile = "default"
     region = "ap-south-1"
     shared_credentials_file = "~/.aws/credentials"
-    access_key = "AKIAXPH3XV36RUH27K66"
-    secret_key = "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"
+    access_key = "AKIAXPH3XV36SCC2XOMI"
+    secret_key = "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"
 }
 resource "aws_instance" "ec2-server" {
    ami = "ami-02eb7a4783e7e9317"
