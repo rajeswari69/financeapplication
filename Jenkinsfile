@@ -42,7 +42,7 @@ steps {
       }
       stage ('Configure Deployserver with Terraform') {
             steps {
-                sh 'chmod 700 mykey.pem'
+                sh 'chmod 700 banking.pem'
                 sh 'terraform init'
                 sh 'terraform validate'
                 sh 'terraform apply --auto-approve'
