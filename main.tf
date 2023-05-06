@@ -21,7 +21,7 @@ resource "aws_instance" "ec2-server" {
            type = "ssh"
            user = "ubuntu"
            private_key = file("mykey.pem")
-           host = aws_instance.ec2_server.public_ip
+           host = aws_instance.ec2-server.public_ip
       }
    }
    tags = {
