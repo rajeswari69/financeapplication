@@ -3,7 +3,7 @@ pipeline {
      tools {
          jdk 'JAVA_HOME'
          maven 'M2_HOME'
-         terraform 'terraform'
+         terraform 'T2_HOME'
      }
 environment {
 
