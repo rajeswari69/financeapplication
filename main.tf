@@ -6,7 +6,7 @@ terraform {
     }
   }
 }
-provider 'aws' {
+provider "aws" {
  profile = "default"
  region = "ap-south-1"
 }
@@ -25,7 +25,7 @@ resource "aws_instance" "ec2-server" {
       }
    }
    tags = {
-     Name = "terraform_server"
+     Name = "terraform-server"
    }
    provisioner "local-exec" {
         command = "echo ${aws_instance.ec2-server.public_ip} > inventory"
