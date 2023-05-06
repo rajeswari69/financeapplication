@@ -6,7 +6,7 @@ terraform {
     }
   }
 }
-provider "aws" {
+provider 'aws' {
  profile = "default"
  region = "ap-south-1"
 }
