@@ -13,7 +13,7 @@ environment {
      stages {
         stage('checkout the project') {
            steps {
-               git branch: 'main', url: 'https://github.com/rajeswari69/bankingapplication.git'
+               git branch: 'main', url: 'https://github.com/rajeswari69/financeapplication.git'
            }
         }
         stage('package the application') {
