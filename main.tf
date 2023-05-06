@@ -18,13 +18,7 @@ terraform {
 }
 
 provider "github" {
-  owner = "hashicorp"
-}
-provider "aws" {
-    region = "ap-south-1"
-    profile = "default"
-    access_key = "AKIAXPH3XV36RUH27K66"
-    secret_key = "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"
+  owner = "hashicrop"
 }
 resource "aws_instance" "ec2_server" {
    ami = "ami-02eb7a4783e7e9317"
