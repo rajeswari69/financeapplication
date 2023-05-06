@@ -1,10 +1,24 @@
 terraform {
-  required_providers {
-    aws = {
-      source  = "hashicorp/aws"
-      version = "3.74.0"
+  backend "remote" {
+    organization = "hashicorp-v2"
+
+    workspaces {
+      name = "terraform-provider-aws-repository"
     }
   }
+
+  required_providers {
+    github = {
+      source  = "integrations/github"
+      version = "5.24.0"
+    }
+  }
+
+  required_version = ">= 0.13.5"
+}
+
+provider "github" {
+  owner = "hashicorp"
 }
 provider "aws" {
     region = "ap-south-1"
