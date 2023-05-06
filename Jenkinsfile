@@ -45,7 +45,7 @@ steps {
                 sh 'chmod 700 mykey.pem'
                 sh 'terraform init'
                 sh 'terraform validate'
-                sh 'terraform apply'
+                sh 'terraform apply --auto-approve'
                 }
             }
 
