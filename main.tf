@@ -2,14 +2,15 @@ terraform {
   required_providers {
     aws = {
       source  = "hashicorp/aws"
-      version = "~> 4.0"
+      version = "~> 3.0"
     }
   }
 }
 provider "aws" {
- profile = "default"
- access_key = "AKIAXPH3XV36RUH27K66"
- secret_key = "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"
+    profile = "default"
+    region = "us-east-1"
+    access_key = "AKIAXPH3XV36RUH27K66"
+    secret_key = "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"
 }
 resource "aws_instance" "ec2-server" {
    ami = "ami-02eb7a4783e7e9317"
