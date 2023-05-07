@@ -55,7 +55,8 @@ steps {
             }
       stage('deploy the application using ansible') {
             steps {
-              ansiblePlaybook credentialsId: 'ssh', disableHostKeyChecking: true, installation: 'ansible', inventory: '/etc/ansible/hosts', playbook: 'deploy.yml'
+              echo "ansible starts"
+              ansiblePlaybook credentialsId: 'ssh', disableHostKeyChecking: true, installation: 'ansible', inventory: 'inventory', playbook: 'deploy.yml'
             }
       }
    }
