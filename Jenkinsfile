@@ -55,7 +55,7 @@ steps {
             }
       stage('deploy the application using ansible') {
             steps {
-              ansiblePlaybook become: true, credentialsId: 'ansibleSSHkey', disableHostKeyChecking: true, installation: 'ansible', inventory: '/var/lib/jenkins/workspace/financeapplication/inventory', playbook: 'deploy.yml'
+              ansiblePlaybook become: true, credentialsId: 'ssh', disableHostKeyChecking: true, installation: 'ansible', inventory: '/var/lib/jenkins/workspace/financeapplication/inventory', playbook: 'deploy.yml'
             }
       }
    }
