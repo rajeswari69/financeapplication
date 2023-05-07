@@ -56,7 +56,7 @@ steps {
       stage('deploy the application using ansible') {
             steps {
               echo "ansible starts"
-              ansiblePlaybook credentialsId: 'ssh', disableHostKeyChecking: true, installation: 'ansible', inventory: 'inventory', playbook: 'deploy.yml'
+              ansiblePlaybook credentialsId: 'ssh', disableHostKeyChecking: true, installation: 'ansible', inventory: '/var/lib/jenkins/workspace/financeapplication/inventory', playbook: 'deploy.yml'
             }
       }
    }
