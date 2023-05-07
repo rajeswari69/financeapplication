@@ -1,16 +1,22 @@
 ---
-- name : Configure Docker on EC2 Instances
-  hosts : [server]
-  become: true
-  tasks : 
-  - name: updating apt
-    command : sudo apt-get update
+  - name : Install Docker and run container
+    hosts : [server]
+    become: true
+    tasks : 
+    - name: update apt
+      command : sudo apt-get update
+    
+    - name: Install Python
+      command : sudo apt-get install -y python3-pip
 
-  - name : Install Docker
-    command : sudo apt-get install -y docker.io
+    - name : Install Docker
+      command : sudo apt-get install -y docker.io
+      become : yes
+      become_user : root
 
-  - name : Start Docker Service
-    command : sudo systemctl start docker
-
-  - name: Deploy Docker Container
-    command: docker run -itd -p 8084:8081 rajeswari123/banking:latest
+    - name : Start Docker Service
+      command : sudo systemctl start docker
+      become : yes
+      become_user : root
+    - name : Runthe image as a container
+      command : docker run -itd -p 8080:8081 snehalatha15/project:latest

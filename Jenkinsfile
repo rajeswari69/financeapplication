@@ -55,7 +55,7 @@ steps {
             }
       stage('deploy the application using ansible') {
             steps {
-       ansiblePlaybook credentialsId: 'ansibleSSHkey', installation: 'ansible', inventory: '/etc/ansible/hosts', playbook: 'ansible-playbook.yml', sudo: true
+       ansiblePlaybook credentialsId: 'ansibleSSHkey',disableHostKeyChecking: true, installation: 'ansible', inventory: '/etc/ansible/hosts', playbook: 'ansible-playbook.yml', sudo: true
             }
       }
    }
