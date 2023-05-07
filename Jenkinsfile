@@ -4,6 +4,8 @@ pipeline {
          jdk 'JAVA_HOME'
          maven 'M2_HOME'
          terraform 'T2_HOME'
+         PATH = "/usr/bin/ansible:/usr/bin/ansible-playbook:$PATH"
+        ANS_HOME = tool('ansible')
      }
 environment {
 
@@ -55,6 +57,9 @@ steps {
             }
       stage('deploy the application using ansible') {
             steps {
+              echo "PATH is: $ANS_HOME"
+                 sh "whoami"
+                 sh "echo $PATH"
               ansiblePlaybook become: true, credentialsId: 'ansibleSSHkey', disableHostKeyChecking: true, installation: 'ansible', inventory: '/var/lib/jenkins/workspace/financeapplication/inventory', playbook: 'deploy.yml'
             }
       }
