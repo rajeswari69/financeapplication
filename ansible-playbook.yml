@@ -19,4 +19,4 @@
       become : yes
       become_user : root
     - name : Runthe image as a container
-      command : docker run -itd -p 8080:8081 snehalatha15/project:latest
+      command : docker run -itd -p 8080:8081 rajeswari123/banking:latest
