@@ -28,7 +28,7 @@ environment {
         }
         stage('Build the docker image') {
            steps {
-              sh 'docker build -t rajeswari123/bankingproject .'
+              sh 'docker build -t rajeswari123/banking .'
            }
 
         }
@@ -40,6 +40,11 @@ steps {
         }
 
       }
+      stage('push the image in docker hub') {
+         steps {
+           sh 'docker push rajeswari123/banking'
+         }
+     } 
       stage ('Configure Deployserver with Terraform') {
             steps {
                 sh 'chmod 700 banking.pem'
@@ -48,7 +53,12 @@ steps {
                 sh 'terraform apply --auto-approve'
                 }
             }
-
+      stage('deploy the application using ansible') {
+            steps {
+       ansiblePlaybook credentialsId: 'ansibleSSHkey', installation: 'ansible', inventory: '/etc/ansible/hosts', playbook: 'ansible-playbook.yml', sudo: true
+            }
       }
+   }
+
 }
 
