@@ -2,10 +2,10 @@
   - name : Install Docker and run container
     hosts : all
     become: true
-    tasks : 
+    tasks :
     - name: update apt
       command : sudo apt-get update
-    
+
     - name: Install Python
       command : sudo apt-get install -y python3-pip
 
@@ -20,3 +20,4 @@
       become_user : root
     - name : Runthe image as a container
       command : docker run -itd -p 8080:8081 rajeswari123/banking:latest
+
